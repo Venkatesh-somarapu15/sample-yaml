@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: static-deployment
+  namespace: sampleapk
+spec:
+  selector:
+    matchLabels:
+      app: dept
+  replicas: 5 
+  template:
+    metadata:
+      labels:
+        app: dept
+    spec:
+      containers:
+      - name: dyanmic 
+        image: 639072867504.dkr.ecr.ap-south-1.amazonaws.com/sathish-repo:7 
+        ports:
+        - containerPort: 80
